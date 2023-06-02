@@ -84,10 +84,37 @@ b)  Load the data for both years into R. Check the type of the count
     variable ("Anzahl") and look into the data to determine why it is
     not numeric? Fix the problem in an appropriate manner, it is OK if
     some of the counts are inaccurate because of this. Explain your
-    solution and the repercussions.
+    solution and the repercussions.    
+    
+```{r loadData}
+names21 <- read.csv("vornamen_2021.csv")
+names22 <- read.csv("open_data_portal_2022.csv")
+
+#Amount of names which were used 4 times or less in 2021:
+table(names21$Anzahl)[["4 oder weniger"]]
+#Amount of names which were used 4 times or less in 2022:
+table(names22$Anzahl)[["4 oder weniger"]]
+
+#Setting the names which were used 4 or less times each year to 1 (for future calculations):
+names21$Anzahl[names21$Anzahl == "4 oder weniger"] <- "1"
+names22$Anzahl[names22$Anzahl == "4 oder weniger"] <- "1"
+names21$Anzahl <- as.numeric(names21$Anzahl)
+names22$Anzahl <- as.numeric(names22$Anzahl)
+
+str(names21)
+str(names22)
+```
+**Answer:**    
+The rows with the entry "4 oder weniger" will be turned into NAs by as.numeric().
+Since we have a high amount of Babynames used only 4 times or less each year (more than 3500 names each year), by setting them to 1, at least 1 baby will be counted toward the total amount of babys in Munich and not just lost by setting the value to NA.
+Also, since by this encoding there are no other names with amount set to 1, we can always change this back or even set them to NA later on.    
 
 c)  Calculate the total number of babies born in Munich in 2022
-    and 2021. Which year had the bigger baby-boom?
+    and 2021. Which year had the bigger baby-boom?    
+    
+```{r totalBabies!}
+
+```
 
 d)  Add a new column `year` to both datasets which holds the correct
     year for each.
