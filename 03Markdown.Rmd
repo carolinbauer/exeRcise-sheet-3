@@ -107,7 +107,7 @@ str(names22)
 **Answer:**    
 The rows with the entry "4 oder weniger" will be turned into NAs by as.numeric().
 Since we have a high amount of Babynames used only 4 times or less each year (more than 3500 names each year), by setting them to 1, at least 1 baby will be counted toward the total amount of babys in Munich and not just lost by setting the value to NA.
-Also, since by this encoding there are no other names with amount set to 1, we can always change this back or even set them to NA later on.    
+Also, since by this encoding there are no other names with amount set to 1, we can always change this back or even set them to NA later on. Of course the final number will still not be correct, since we don't know which name really was used only once or maybe 2, 3 or 4 times   
 
 c)  Calculate the total number of babies born in Munich in 2022
     and 2021. Which year had the bigger baby-boom?    
