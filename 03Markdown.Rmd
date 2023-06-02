@@ -194,6 +194,57 @@ column_means \<- lapply(tax_data\[, -1\], 2, mean)
 
 column_means
 
+```{r TaxesChatGPT}
+### Create a sample data frame
+tax_data <- data.frame(Name = c("Munich GmbH", "ABC Inc.", "Backpacks 1980", 
+                                "Bavarian Circus"),
+                       Tax_2019 = c(5000, 4000, 6000, 3500),
+                       Tax_2020 = c(4800, 4200, 5800, 3700),
+                       Tax_2021 = c(5200, 3800, 5900, 3400))
+
+### Calculate column-wise means
+column_means <- apply(tax_data[, -1], 2, mean)
+
+### Calculate row-wise means
+row_means <- apply(tax_data[, -1], 1, mean)
+
+column_means
+row_means
+```
+**Answer: (By ChatGPT):**    
+
+Explanation:
+
+- The apply function is used instead of lapply to iterate over the columns or rows of a matrix or data frame.
+- tax_data[, -1] is used to select all columns except the first column (Name column) because the mean calculation is not applicable to non-numeric data.    
+- The argument 2 in apply indicates that we want to apply the mean function to each column (calculate column-wise means).    
+- The argument 1 in apply indicates that we want to apply the mean function to each row (calculate row-wise means).
+
+**Prompt used:**    
+
+Please help me solve my programming assignment in R. Here is the first task:     
+For this task: Specifically use ChatGPT to solve the task and submit your prompts in addition to the
+solution
+a) The code below does not work because the wrong apply function has been used. Find out which apply
+function would be correct and why it did not work. Correct the code. Also calculate the rowwise
+means.
+
+###Create a sample data frame
+
+tax_data \<- data.frame( Name = c("Munich GmbH", "ABC Inc.", "Backpacks
+1980", "Bavarian Circus"), Tax_2019 = c(5000, 4000, 6000, 3500),
+Tax_2020 = c(4800, 4200, 5800, 3700), Tax_2021 = c(5200, 3800, 5900,
+3400) )
+
+###Calculate column-wise means
+
+column_means \<- lapply(tax_data\[, -1\], 2, mean)
+
+column_means
+
+**End of Prompt**    
+    
+    
 b)  Using ChatGPT try to understand what the rapply() function does.
     Create an easy example with mock data where the function is used and
     explain it in your words.
