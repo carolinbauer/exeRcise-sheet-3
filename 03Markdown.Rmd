@@ -8,6 +8,7 @@ output:
 ---
 ```{r setup, include = F, echo = F}
 library(tidyverse)
+library(knitr)
 ```
 
 ## General Remarks
@@ -142,7 +143,34 @@ babynames <- bind_rows(names21, names22)
 
 f)  Combine the counts for same names to determine the most popular
     names across both years. Print out the top 10 names in a nicely
-    formatted table for both years. Include a table caption.
+    formatted table for both years. Include a table caption.    
+    
+```{r combineCounts}
+#most popular across both years:
+babynames %>%
+  group_by(Vorname) %>%
+  summarize(Anzahl = sum(Anzahl)) %>%
+  slice_max(order_by = Anzahl)
+
+#top 10 both years
+top10_2021 <- babynames %>%
+  filter(year == 2021)%>%
+  arrange(desc(Anzahl))%>%
+  slice_head(n = 10)%>%
+  select("Top 10 2021" = Vorname)
+
+top10_2022 <- babynames %>%
+  filter(year == 2022)%>%
+  arrange(desc(Anzahl))%>%
+  slice_head(n = 10)%>%
+  select("Top 10 2022" = Vorname)
+
+
+kable(data.frame(top10_2021, top10_2022),
+      col.names = c("Top 10 Names in 2021", "Top 10 Names in 2022"),
+      align = "c"
+      )
+```
 
 ## Exercise 4: Chat GPT + apply (3 points)
 
