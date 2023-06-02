@@ -136,6 +136,9 @@ names22 <- names22 %>%
   mutate(year = 2022)
 ```
 e)  Combine both datasets into one using `bind_rows()`.
+```{r combineBabysets}
+babynames <- bind_rows(names21, names22)
+```
 
 f)  Combine the counts for same names to determine the most popular
     names across both years. Print out the top 10 names in a nicely
