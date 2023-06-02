@@ -126,8 +126,15 @@ names22 %>%
 2021 had a bigger baby-boom.
 
 d)  Add a new column `year` to both datasets which holds the correct
-    year for each.
+    year for each.    
+    
+```{r newCol}
+names21 <- names21 %>%
+  mutate(year = 2021)
 
+names22 <- names22 %>%
+  mutate(year = 2022)
+```
 e)  Combine both datasets into one using `bind_rows()`.
 
 f)  Combine the counts for same names to determine the most popular
