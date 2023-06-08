@@ -249,11 +249,9 @@ b)  Using ChatGPT try to understand what the rapply() function does.
     Create an easy example with mock data where the function is used and
     explain it in your words.
 
-**Answer (By ChatGPT):**    
-The rapply() function in R is a recursive version of the lapply() function, where "r" stands for recursive. It is used to apply a given function to each element of a nested list structure, including lists within lists.
-
+**Example (By ChatGPT):**    
 Here's an example that demonstrates the usage of rapply():
-```{r rapplyExplanation}
+```{r rapplyExplanationChatGPT}
 # Create a nested list with mock data
 nested_list <- list(
   a = 1,
@@ -281,15 +279,12 @@ result <- rapply(nested_list, double_value, how = "replace")
 result
 
 ```
-In this example, we have a nested list called nested_list with different levels of nesting. The list contains numeric values (1, 2, 3, 4) at various levels.
 
-The double_value() function is defined to double the numeric values. It checks if the input is numeric and returns double the value; otherwise, it returns the input unchanged.
-
-By using rapply(), we can apply the double_value() function recursively to each numeric element within the nested list. The how = "replace" argument ensures that the original values in the nested list are replaced with the modified values.
-
-The resulting list, stored in the result variable, will have the same structure as the original nested_list, but with all numeric values doubled.
-
-In summary, rapply() is a useful function when you need to apply a given function to each element of a nested list structure in a recursive manner, allowing for easy manipulation and transformation of complex data structures.   
+**Own Explaination:**    
+Lists can be recursive, meaning that you can have lists within lists.
+Rapply function stands for recursive apply and is used to apply a function on all elements of a list recursively. Here in our example we created a list that contains sublists which we called nested_list. 
+Then we defined a function, called double_value which muliplies the input with 2 if the input is numeric and returns the input if it's not numeric.
+Then we use the rapply function, because we want to multiply every element of the list (including the elements of the sublist) times 2 using our double_value function. The first argument of the function is the list nested_list, the next argument is the function that is going to be applied to all of the elements. In our case, this function is double_value and will multiply each element in the list, including the sublists times 2. The last argument (how = "replace") makes sure that the original structure aka a list with sublists is preserved in the output. Once the rapply runs through our nested_list we get the list output that shows that all of our original list elements, including sublist elements, were doubled.
 
 **Prompt Used:**    
 Here is my second task: Using ChatGPT try to understand what the rapply() function does. Create an easy example with mock data where the function is used and explain it in your words.    
