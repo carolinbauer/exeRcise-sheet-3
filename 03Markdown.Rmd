@@ -167,8 +167,9 @@ top10_2022 <- babynames %>%
 
 
 kable(data.frame(top10_2021, top10_2022),
-      col.names = c("Top 10 Names in 2021", "Top 10 Names in 2022"),
-      align = "c"
+      col.names = c("Top 10 names in 2021", "Top 10 names in 2022"),
+      align = "c",
+      caption = "Top 10 babynames in 2021 and 2022"
       )
 ```
 
