@@ -195,6 +195,8 @@ column_means \<- lapply(tax_data\[, -1\], 2, mean)
 
 column_means
 
+
+**Fixed code by ChatGPT:**
 ```{r TaxesChatGPT}
 ### Create a sample data frame
 tax_data <- data.frame(Name = c("Munich GmbH", "ABC Inc.", "Backpacks 1980", 
